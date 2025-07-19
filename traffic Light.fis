@@ -1,0 +1,74 @@
+[System]
+Name='traffic Light'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=4
+NumRules=4
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='South'
+Range=[0 1]
+NumMFs=2
+MF1='LOW':'trimf',[-0.6 0 0.6]
+MF2='HIGH':'trimf',[0.4 1 1.4]
+
+[Input2]
+Name='West'
+Range=[0 1]
+NumMFs=2
+MF1='LOW':'trimf',[-0.6 0 0.6]
+MF2='HIGH':'trimf',[0.4 1 1.4]
+
+[Input3]
+Name='East'
+Range=[0 1]
+NumMFs=2
+MF1='LOW':'trimf',[-0.6 0 0.6]
+MF2='HIGH':'trimf',[0.4 1 1.4]
+
+[Input4]
+Name='North'
+Range=[0 1]
+NumMFs=2
+MF1='LOW':'trimf',[-0.6 0 0.6]
+MF2='HIGH':'trimf',[0.4 1 1.4]
+
+[Output1]
+Name='South'
+Range=[0 1]
+NumMFs=2
+MF1='GREEN':'trimf',[-0.6 0 0.6]
+MF2='RED':'trimf',[0.4 1 1.4]
+
+[Output2]
+Name='West'
+Range=[0 1]
+NumMFs=2
+MF1='GREEN':'trimf',[-0.6 0 0.6]
+MF2='RED':'trimf',[0.4 1 1.4]
+
+[Output3]
+Name='East'
+Range=[0 1]
+NumMFs=2
+MF1='RED':'trimf',[0.4 1 1.4]
+MF2='GREEN':'trimf',[-0.6 0 0.6]
+
+[Output4]
+Name='North'
+Range=[0 1]
+NumMFs=2
+MF1='RED':'trimf',[0.4 1 1.4]
+MF2='GREEN':'trimf',[-0.6 0 0.6]
+
+[Rules]
+2 1 1 1, 1 2 1 1 (1) : 1
+1 2 1 1, 2 1 1 1 (1) : 1
+1 1 2 1, 2 2 2 1 (1) : 1
+1 1 1 2, 2 2 1 2 (1) : 1
